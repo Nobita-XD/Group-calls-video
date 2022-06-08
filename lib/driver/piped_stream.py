@@ -19,6 +19,7 @@ async def play_video(client, message):
     replied = message.reply_to_message
     text = message.text.split(None, 2)[1:]
     user = message.from_user.mention
+    chat_id = message.chat.id
     if not replied:
         try:
             add_chat(str(chat_id))

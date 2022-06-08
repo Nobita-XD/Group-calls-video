@@ -9,10 +9,10 @@ async def pstream(chat_id, file, audio=None):
     if audio:
         await call_py.join_group_call(
             chat_id,
-            AudioImagePiped(
+            AudioPiped(
                 file,
                 "./etc/banner.png",
-                video_parameters=HighQualityVideo(),
+                video_parameters=HighQualityAudio(),
             ),
             stream_type=StreamType().local_stream,
         )
@@ -23,7 +23,7 @@ async def pstream(chat_id, file, audio=None):
                 file,
                 HighQualityAudio(),
                 ),
-            stream_type=StreamType().pulse_stream,
+            stream_type=StreamType().local_stream,
         )
 
 
@@ -35,5 +35,5 @@ async def pstream_audio(chat_id, file, thumb):
             thumb,
             HighQualityAudio(),
         ),
-        stream_type=StreamType().pulse_stream,
+        stream_type=StreamType().local_stream,
     )

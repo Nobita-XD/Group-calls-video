@@ -15,21 +15,20 @@ from .join import opengc
 @Client.on_message(filters.command(["play", "stream"]) & public_filters)
 @blacklist_users
 async def play_video(client, message):
-    flags = "".join(message.command[1:])
+    flags = " ".join(message.command[1:])
     replied = message.reply_to_message
     text = message.text.split(None, 2)[1:]
     user = message.from_user.mention
-    chat_id = int(message.chat.title) if flags == "channel" else message.chat.id
     try:
         if text[0] == "channel":
             chat_id = int(message.chat.title)
             try:
-                input = " ".join(text[1:])
+                input = "t.me".join(text[1:])
             except Exception:
                 pass
         else:
             chat_id = message.chat.id
-            input = " ".join(message.command[1:])
+            input = "t.me".join(message.command[1:])
     except Exception:
         pass
     if not replied:

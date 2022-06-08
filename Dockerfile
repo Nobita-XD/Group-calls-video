@@ -1,9 +1,15 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs18
-RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends ffmpeg \
-    && apt-get clean \
+FROM python:3.10
+
+COPY . /worker
+WORKDIR /worker
+
+RUN apt update -qqy \
+    && apt install --no-install-recommends git curl ffmpeg -qqy \
+    && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && npm i -g npm \
+    && pip install -U -r requirements.txt \
+    && git clone --depth=1 https://github.com/galihmrd/addon-vc etc \
     && rm -rf /var/lib/apt/lists/*
-COPY . /app/
-WORKDIR /app/
-RUN pip3 install -U -r requirements.txt
+
 CMD python3 -m lib

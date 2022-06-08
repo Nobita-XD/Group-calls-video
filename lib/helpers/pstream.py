@@ -23,7 +23,7 @@ async def pstream(chat_id, file, audio=None):
                 file,
                 HighQualityAudio(),
                 ),
-            stream_type=StreamType().pulse_stream,
+            stream_type=StreamType().local_stream,
         )
 
 

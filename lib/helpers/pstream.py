@@ -19,21 +19,21 @@ async def pstream(chat_id, file, audio=None):
     else:
         await call_py.join_group_call(
             chat_id,
-            AudioVideoPiped(
+            AudioPiped(
                 file,
-                video_parameters=HighQualityVideo(),
-            ),
-            stream_type=StreamType().local_stream,
+                HighQualityAudio(),
+                ),
+            stream_type=StreamType().pulse_stream,
         )
 
 
 async def pstream_audio(chat_id, file, thumb):
     await call_py.join_group_call(
         chat_id,
-        AudioImagePiped(
+        AudioPiped(
             file,
             thumb,
-            video_parameters=HighQualityVideo(),
+            HighQualityAudio(),
         ),
-        stream_type=StreamType().local_stream,
+        stream_type=StreamType().pulse_stream,
     )

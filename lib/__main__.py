@@ -32,6 +32,7 @@ logging.basicConfig(
     level=logging.INFO,
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+logging.getLogger("py-tgcalls").setLevel(logging.WARNING)
 
 LOGGER = logging.getLogger(__name__)
 

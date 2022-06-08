@@ -19,18 +19,6 @@ async def play_video(client, message):
     replied = message.reply_to_message
     text = message.text.split(None, 2)[1:]
     user = message.from_user.mention
-    try:
-        if text[0] == "channel":
-            chat_id = int(message.chat.title)
-            try:
-                input = "".join(text[1:])
-            except Exception:
-                pass
-        else:
-            chat_id = message.chat.id
-            input = "".join(message.command[1:])
-    except Exception:
-        pass
     if not replied:
         try:
             add_chat(str(chat_id))

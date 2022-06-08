@@ -20,6 +20,7 @@ async def play_video(client, message):
     text = message.text.split(None, 2)[1:]
     user = message.from_user.mention
     chat_id = int(message.chat.title) if flags == "channel" else message.chat.id
+    if not replied:
         try:
             add_chat(str(chat_id))
         except BaseException:

@@ -1,6 +1,6 @@
 from pytgcalls import StreamType
-from pytgcalls.types.input_stream import AudioImagePiped, AudioVideoPiped
-from pytgcalls.types.input_stream.quality import HighQualityVideo
+from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
+from pytgcalls.types.input_stream.quality import HighQualityAudio
 
 from lib.tg_stream import call_py
 
@@ -23,7 +23,7 @@ async def pstream(chat_id, file, audio=None):
                 file,
                 HighQualityAudio(),
                 ),
-            stream_type=StreamType().local_stream,
+            stream_type=StreamType().pulse_stream,
         )
 
 
